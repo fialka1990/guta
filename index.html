@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Заголовок страницы</title>
+    <meta name="keywords" content="Ключевые слова, и, фразы, через, запятую">
+    <meta name="description" content="Описание контента страницы, 1-2 предложения.">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link href="css/grid.css" type="text/css" rel="stylesheet">
+    <link href="css/styles.css" type="text/css" rel="stylesheet">
+    <link href="css/template_styles.css" type="text/css" rel="stylesheet">
+    <link href="css/hlp.css" type="text/css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i&display=swap&subset=cyrillic" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,600i,700,700i&display=swap&subset=cyrillic" rel="stylesheet">
+    <link href="fontawesome/css/all.css" rel="stylesheet">
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <link rel="stylesheet" href="bxslider/jquery.bxslider.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="bxslider/jquery.bxslider.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $('.bxslider').bxSlider({
+                //auto: true,
+                autoControls: true,
+                stopAutoOnClick: true,
+                pager: true,
+                //slideWidth: 600
+            });
+            let bx_viewport = document.getElementsByClassName('bx-viewport');
+            let content = document.getElementsByClassName('content');
+            let heightViewport = bx_viewport[0].clientHeight;
+            let heightContent = content[0].clientHeight;
+            let top = (heightViewport - heightContent) / 2 - 40 + 'px';
+            for (let i = 0; i < content.length; i++){
+                content[i].style.top = top;
+            }
+        });
+        window.addEventListener('resize', setHeight);
+        function setHeight(){
+            let bx_viewport = document.getElementsByClassName('bx-viewport');
+            let content = document.getElementsByClassName('content');
+            let heightViewport = bx_viewport[0].clientHeight;
+            let heightContent = content[0].clientHeight;
+            let top = (heightViewport - heightContent) / 2 - 40 + 'px';
+            for (let i = 0; i < content.length; i++){
+                content[i].style.top = top;
+            }
+        }
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop > 0){
+                document.querySelector('.main_header').style.top = 0 + 'px';
+            } else {
+                document.querySelector('.main_header').style.top = 28 + 'px';
+            }
+        });
+
+    </script>
+</head>
+<body>
+    <div class="oh header_top">
+        <div class="mw">
+            <a href="#" class="fl">Режим работы</a>
+            <a href="#" class="fr">Правила посещения</a>
+        </div>
+    </div>
+    <header class="main_header">
+        <div class="mw">
+            <div class="logo fl pv20"><a href="/"><img src="img/logo.png" alt="LOGOTYPE"></a></div>
+            <div class="enter fr pv20">
+                <a href="#" class="pr10">Регистрация</a>
+                <a href="#">Вход</a>
+            </div>
+            <nav>
+                <ul class="topmenu">
+                    <li><a href="#">Меню</a></li>
+                    <li>
+                        <a href="#">Меню</a>
+                        <ul class="submenu">
+                            <li><a href="#">Меню</a></li>
+                            <li><a href="#">Меню</a></li>
+                            <li><a href="#">Меню</a></li>
+                            <li><a href="#">Меню</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Меню</a></li>
+                    <li><a href="#">Меню</a></li>
+                    <li><a href="#">Меню</a></li>
+                    <li><a href="#">Меню</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <header class="main_header_mobile oh pv10">
+        <div class="mw">
+            <div class="logo fl"><a href="/"><img src="img/logo.png" alt="LOGOTYPE"></a></div>
+            <div id="burger" class="fr" onclick="menu_show(this)"><i class="fas fa-bars"></i></div>
+            <div id="burger_block" style="display:none;">
+                <nav>
+                    <ul class="topmenu">
+                        <li><a href="#">Меню</a></li>
+                        <li><a href="#">Меню</a></li>
+                        <li><a href="#">Меню</a></li>
+                        <li><a href="#">Меню</a></li>
+                        <li><a href="#">Меню</a></li>
+                        <li><a href="#">Меню</a></li>
+                    </ul>
+                </nav>
+                <div class="enter pv20 ac">
+                    <p><a href="#">Регистрация</a></p>
+                    <p><a href="#">Вход</a></p>
+                </div>
+                <div class="ac">
+                    <p><a href="#">Режим работы</a></p>
+                    <p><a href="#">Правила посещения</a></p>
+                </div>
+            </div>
+        </div>
+    </header>
+    <script>
+        function menu_show(burger){
+            //console.dir(this.innerHTML);
+            if (burger.innerHTML == '<i class="fas fa-bars"></i>'){
+                burger.innerHTML = '<i class="fas fa-times"></i>';
+            } else{
+                burger.innerHTML = '<i class="fas fa-bars"></i>'
+            }
+            let burger_block = document.getElementById('burger_block');
+            if (burger_block.style.display == 'none'){
+                burger_block.style.display = 'block';
+            } else{
+                burger_block.style.display = 'none'
+            }
+        }
+    </script>
+    <div class="bxslider">
+        <div>
+            <a href="#"></a>
+            <div class="mw">
+                <div class="content">
+                    <div class="cap">Анимация</div>
+                    <h1>Подготовка спрайтов для </br> анимации в UNITY 1</h1>
+                    <p>Спрайты должны немного отличаться друг от друга, </br>чтобы было заметно движение</p>
+                </div>
+            </div>
+            <img src="img/1.jpg">
+        </div>
+        <div>
+            <a href="#"></a>
+            <div class="mw">
+                <div class="content">
+                    <div class="cap">Анимация</div>
+                    <h1>Подготовка спрайтов для </br> анимации в UNITY 1</h1>
+                    <p>Спрайты должны немного отличаться друг от друга, </br>чтобы было заметно движение</p>
+                </div>
+            </div>
+            <img src="img/2.jpg">
+        </div>
+        <div>
+            <a href="#"></a>
+            <div class="mw">
+                <div class="content">
+                    <div class="cap">Анимация</div>
+                    <h1>Подготовка спрайтов для </br> анимации в UNITY 1</h1>
+                    <p>Спрайты должны немного отличаться друг от друга, </br>чтобы было заметно движение</p>
+                </div>
+            </div>
+            <img src="img/3.jpg">
+        </div>
+    </div>
+
+    <main class="mw">
+        <section class="about">
+            <div class="grid grid--col12 grid--gv10 pb20">
+                <div class="box">
+                    <div class="cell cell--col3 cell--sm12">
+                        <h2>О компании</h2>
+                    </div>
+                    <div class="cell cell--col9 cell--sm12">
+                        <p>Что-то более продвинутое делается с помощью покадровой анимации - когда для разных
+                            состояний объекта (стоит, идет, в прыжке, атакует) создается несколько
+                            спрайтов (двумерное изображение), которые сменяют друг друга с определенным
+                            интервалом.</p>
+                        <a href="#" class="but_a">Подробнее <i class="fas fa-arrow-right pl5"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="main_news">
+            <header class="pb15">
+                <a href="#" class="fr">Все новости</a>
+                <h2>Новости</h2>
+            </header>
+            <div class="grid grid--col12 grid--gv10">
+                <div class="box">
+                    <div class="cell cell--col6 cell--xs12" style = "background: center / cover no-repeat url('img/n1.png')">
+                        <img src="img/n1.png">
+                        <!--<div style = "background: url('img/n1.png') no-repeat"></div>-->
+                    </div>
+                    <div class="cell cell--col6 cell--xs12" style = "background: center / cover no-repeat url('img/n2.png')">
+                        <img src="img/n2.png">
+                        <!--<div style = "background: url('img/n2.png') no-repeat"></div>-->
+                    </div>
+                    <div class="cell cell--col12" style = "background: center / cover no-repeat url('img/n3.png')">
+                        <img src="img/n3.png">
+                    </div>
+                </div>
+                <p class="ac pv20"><button class="but_a" onclick = "show(this)">ПОКАЗАТЬ ЕЩЕ</button></p>
+                <div class="box dop ac pb20" style="display: none">
+                    <div class="cell cell--col6 cell--xs12" style = "background: center / cover no-repeat url('img/n1.png')">
+                        <img src="img/n1.png">
+                        <!--<div style = "background: url('img/n1.png') no-repeat"></div>-->
+                    </div>
+                    <div class="cell cell--col6 cell--xs12" style = "background: center / cover no-repeat url('img/n2.png')">
+                        <img src="img/n2.png">
+                        <!--<div style = "background: url('img/n2.png') no-repeat"></div>-->
+                    </div>
+                    <div class="cell cell--col12" style = "background: center / cover no-repeat url('img/n3.png')">
+                        <img src="img/n3.png">
+                    </div>
+                </div>
+                <script>
+                    function show(elem) {
+                        let div = elem.parentElement.nextElementSibling;
+                        if (div.style.display == 'none'){
+                            div.style.display = 'block';
+                        } else {
+                            div.style.display = 'none';
+                        }
+                    }
+                </script>
+            </div>
+        </section>
+
+        <section class="p15 mb20" id="subscribe">
+            <h3 class="ac">Подпишитесь на рассылку</h3>
+            <p></p>
+            <form name="subscribe">
+                <div class="grid grid--col12 grid--gv10">
+                    <div class="box box--bottom">
+                        <div class="cell cell--col6 cell--xs12">
+                            <p>Имя</p>
+                            <p></p>
+                            <input type = 'text' class="required" id = 'name' value = '' placeholder="Введите имя">
+                        </div>
+                        <div class="cell cell--col6 cell--xs12">
+                            <p></p>
+                            <input type = 'text' class="required" id = 'email' value = '' placeholder="example@mail.com">
+                        </div>
+                        <div class="cell cell--col12">
+                            <p></p>
+                            <textarea placeholder="Комментарии" class="required" rows="5"></textarea>
+                        </div>
+                        <p class="ac"><a class="button pg30" onclick="form_subscribe(this)">ПОДПИСАТЬСЯ</a></p>
+                    </div>
+                </div>
+            </form>
+            <script>
+                let subscribe = document.forms['subscribe'];
+                let field = subscribe.getElementsByClassName('required');
+                for (let i = 0; i < field.length; i++){
+
+                    field[i].addEventListener('blur', check);
+                };
+                function check(){
+                    if (this.value == ''){
+                        this.style.borderColor = '#f6c5a0';
+                        this.previousElementSibling.innerHTML = 'Заполните поле';
+                        this.previousElementSibling.style.color = '#f6c5a0';
+                        this.classList.remove('ok');
+                    } else {
+                        this.classList.add('ok');
+                        this.style.borderColor = '#14a5da';
+                        this.style.background = '#e2f4fb';
+                        this.previousElementSibling.innerHTML = '';
+                    }
+                }
+                /*** name ***/
+                let name = document.getElementById('name');
+                name.addEventListener('blur', testNumber);
+                function testNumber(){
+                    if ( this.value.search( /[0-9]/i ) != -1) {
+                        this.style.borderColor = '#f6c5a0';
+                        this.previousElementSibling.innerHTML = 'Цифры в имени не допустимы';
+                        this.previousElementSibling.style.color = '#f6c5a0';
+                        this.classList.remove('ok');
+                    }
+                }
+                //if ( /[0-9]/.test(name.value) ) {
+
+                /*** email ***/
+                let email = document.getElementById('email');
+                let pattern = /^([a-z0-9_\.-])+@[a-z0-9-]+\.([a-z]{2,4}\.)?[a-z]{2,4}$/i;
+                email.addEventListener('blur', testEmail);
+                function testEmail(){
+                    if(pattern.test(this.value)){
+
+                    } else {
+                        this.style.borderColor = '#f6c5a0';
+                        this.previousElementSibling.innerHTML = 'Введите валидный email';
+                        this.previousElementSibling.style.color = '#f6c5a0';
+                        this.classList.remove('ok');
+                    }
+                }
+
+
+                function form_subscribe(button) {
+                    let ok = true;
+                    for (let i = 0; i < field.length; i++){
+                        if (field[i].classList.contains("ok") == false){
+                            ok = false;
+                        }
+                    };
+                    if (ok){
+                        document.getElementById('subscribe').style.borderColor = '#eeeeee';
+                        subscribe.innerHTML = '<div class="thanks"><p><i class="far fa-check-circle"></i></p>БЛАГОДАРИМ ЗА ПОДПИСКУ!</div>';
+                    }
+                }
+            </script>
+        </section>
+    </main>
+
+    <footer class="main_footer pv15">
+        <div class="mw">
+            <div class="grid grid--col12 grid--gv10">
+                <div class="box">
+                    <div class="cell cell--col12">
+                        <a href="\"><img src="img/logo_foot.png" class="logo_foot" title="logo"></a>
+                    </div>
+                    <div class="cell cell--xs12 cell--col4">
+                        <p>г.Москва, метро Бауманская, <br>ул.Бауманская, дом 44</p>
+                    </div>
+                    <div class="cell cell--xs12 cell--col8 ">
+                        <ul>
+                            <li><a href="#">О компании</a></li>
+                            <li><a href="#">Партнерская программа</a></li>
+                            <li><a href="#">Реклама</a></li>
+                            <li><a href="#">Пресс центр</a></li>
+                            <li><a href="#">Вакансии</a></li>
+                            <li><a href="#">Помощь</a></li>
+                            <li><a href="#">Правила</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="box box--bottom pt10">
+                    <div class="cell cell--col4 cell--xs12">
+                        <a href="tel:+70000000000"><b>+7 000 000 00 00</b></a>
+                    </div>
+                    <div class="cell cell--col4 soc cell--xs12">
+                        <p class="pb5">Мы в соц. сетях</p>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-odnoklassniki"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                    <div class="cell cell--col4 cell--xs12">
+                        <p class="pb5">Подписка на новости</p>
+                        <form method="post" name="form_footer">
+                            <p></p>
+                            <input type="text" id="email_foot" placeholder="example@mail.ru">
+                            <!--<input type="submit" class="button" onclick="form_foot()" value = 'ok'>-->
+                            <a class="button" onclick="form_foot(this)">ok</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        function form_foot(button){
+            let inp = document.getElementById('email_foot');
+            if(inp.value == ''){
+                inp.style.borderColor = '#f6c5a0';
+                inp.previousElementSibling.innerHTML = 'Заполните поле';
+                inp.previousElementSibling.style.color = '#f6c5a0';
+            } else {
+                button.style.display = 'none';
+                inp.style.display = 'none';
+                inp.previousElementSibling.innerHTML = 'Заявка отправлена!';
+                inp.previousElementSibling.style.color = 'green';
+            }
+        }
+    </script>
+    <section class="copyright pv10">
+        <div class="mw">
+            <div class="grid grid--col12">
+                <div class="box">
+                    <div class="cell cell--col6 cell--xs0">
+                        <span>© ООО "Глобус", 2016 - 2019</span>
+                    </div>
+                    <div class="cell cell--col6 ar cell--xs12">
+                        <a href="#">Политика конфеденциальности</a>
+                        <a href="#">Cookies</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
