@@ -1,0 +1,179 @@
+.header_top {
+  background: #dce5e9;
+  font-size: 12px;
+  line-height: 12px;
+  padding: 8px 0; }
+
+.main_header_mobile {
+  display: none; }
+
+.main_header {
+  position: fixed;
+  top: 28px;
+  height: 5rem;
+  width: 100%;
+  background: #fff;
+  z-index: 10000; }
+  .main_header a {
+    color: #6e6e6e;
+    font-size: 0.8rem;
+    text-decoration: none; }
+    .main_header a:hover {
+      color: #000;
+      text-decoration: underline; }
+  .main_header .logo img {
+    height: 1rem; }
+  .main_header nav {
+    margin: auto; }
+    .main_header nav .topmenu {
+      text-align: center; }
+      .main_header nav .topmenu li {
+        display: inline-block;
+        position: relative;
+        z-index: 1000; }
+        .main_header nav .topmenu li a {
+          display: block;
+          font-size: 1rem;
+          line-height: 1rem;
+          padding: 2rem 1rem; }
+          .main_header nav .topmenu li a:hover {
+            color: #000;
+            font-weight: bold;
+            text-decoration: none; }
+        .main_header nav .topmenu li:hover .submenu {
+          display: block; }
+        .main_header nav .topmenu li:after {
+          background-color: #dce5e9;
+          display: block;
+          content: "";
+          height: 2px;
+          width: 0%;
+          -webkit-transition: width .3s ease-in-out;
+          -moz--transition: width .3s ease-in-out;
+          transition: width .3s ease-in-out; }
+        .main_header nav .topmenu li:hover:after, .main_header nav .topmenu li:focus:after {
+          width: 100%; }
+      .main_header nav .topmenu .submenu {
+        display: none;
+        background: #fff;
+        padding-top: 0rem;
+        position: fixed;
+        z-index: 100;
+        padding-bottom: 2px; }
+        .main_header nav .topmenu .submenu li {
+          float: left; }
+
+.main_news .but_a {
+  margin: auto; }
+.main_news img {
+  width: 100%; }
+
+.bx-wrapper {
+  margin-top: 5.6rem !important; }
+
+#subscribe {
+  border: 1px solid #14a5da; }
+
+.thanks {
+  padding: 5rem 0;
+  text-align: center; }
+  .thanks i {
+    color: #3dcc89;
+    padding-bottom: 1rem;
+    font-size: 2rem; }
+
+.main_footer {
+  background: #dce5e9; }
+  .main_footer .logo_foot {
+    height: 1rem; }
+  .main_footer p {
+    font-size: 0.8rem; }
+  .main_footer ul li {
+    display: inline-block;
+    padding-right: 1.4rem; }
+    .main_footer ul li a {
+      font-size: 0.8rem; }
+  .main_footer .soc a {
+    color: #14a5da;
+    padding-right: 0.5rem; }
+    .main_footer .soc a:hover {
+      color: #001f2b; }
+
+.copyright {
+  background: #001f2b; }
+  .copyright span {
+    color: #dce5e9;
+    font-size: 0.8rem; }
+  .copyright a {
+    color: #dce5e9;
+    font-size: 0.8rem;
+    padding-left: 1rem; }
+
+form[name="subscribe"] {
+  max-width: 600px;
+  margin: auto; }
+  form[name="subscribe"] input, form[name="subscribe"] textarea {
+    width: 100%; }
+  form[name="subscribe"] p {
+    font-size: 12px; }
+
+@media screen and (min-width: 769px) {
+  .cell {
+    background: none !important; } }
+@media screen and (max-width: 768px) {
+  .header_top, .main_header {
+    display: none; }
+
+  .main_header_mobile {
+    background: #fff;
+    display: block;
+    position: fixed;
+    height: 26px;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 10000; }
+    .main_header_mobile img {
+      height: 16px;
+      padding-top: 5px; }
+    .main_header_mobile i {
+      font-size: 26px; }
+
+  #burger_block {
+    position: fixed;
+    top: 3.6rem;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    z-index: 10000;
+    overflow: hidden; }
+    #burger_block .topmenu li {
+      text-align: center; }
+
+  .bx-wrapper {
+    margin-top: 3.6rem !important; }
+
+  h2 {
+    text-align: center; }
+
+  .about a {
+    text-align: center; }
+
+  .main_news header a {
+    display: none; }
+  .main_news .cell {
+    height: 200px;
+    margin-bottom: 1rem; }
+    .main_news .cell img {
+      display: none; }
+
+  .main_footer .cell {
+    text-align: center; }
+
+  .copyright .cell {
+    text-align: center; }
+  .copyright a {
+    padding-right: 1rem; } }
+
+/*# sourceMappingURL=template_styles.css.map */

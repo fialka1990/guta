@@ -1,0 +1,313 @@
+$breakpoints: (
+        xs: 480,
+        sm: 768,
+        ms: 1024,
+        md: 1280,
+        lg: 1440,
+);
+
+$columns: (12);
+
+$indents: (0, 5, 10, 15, 20, 25, 30, 50);
+
+$htmlFontSize: 16;
+
+@mixin default($breakpoints, $htmlFontSize) {
+  .grid * {
+    box-sizing: border-box;
+  }
+
+  html {
+    font-size: #{$htmlFontSize}px;
+    $size: $htmlFontSize;
+    @for $i from length($breakpoints) through 1 {
+      @media (max-width: #{nth(map-values($breakpoints), $i)}px) {
+        font-size: #{$size}px;
+      }
+      $size: $size - 1;
+    }
+  }
+}
+
+@mixin grid($breakpoints) {
+  .grid {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+
+    @each $name, $width in $breakpoints {
+      @media (min-width: #{$width}px) {
+        &--size,
+        &--#{$name} {
+          width: #{$width}px;
+        }
+      }
+    }
+  }
+
+  .box {
+    display: block;
+    font-size: 0;
+
+    &--left {
+      text-align: left;
+    }
+
+    &--right {
+      text-align: right;
+    }
+
+    &--center {
+      text-align: center;
+    }
+
+    &--justify {
+      text-align: justify;
+      text-justify: newspaper;
+
+      &::after {
+        content: "";
+        width: 100%;
+        height: 0;
+        display: inline-block;
+        font-size: medium;
+      }
+    }
+
+    &--top {
+      &::before {
+        content: "";
+        height: 100%;
+        width: 0;
+        vertical-align: top;
+        display: inline-block;
+      }
+
+      > .cell {
+        vertical-align: top;
+      }
+    }
+
+    &--middle {
+      &::before {
+        content: "";
+        height: 100%;
+        width: 0;
+        vertical-align: middle;
+        display: inline-block;
+      }
+
+      > .cell {
+        vertical-align: middle;
+      }
+    }
+
+    &--bottom {
+      &::before {
+        content: "";
+        height: 100%;
+        width: 0;
+        vertical-align: bottom;
+        display: inline-block;
+      }
+
+      > .cell {
+        vertical-align: bottom;
+      }
+    }
+  }
+
+  .cell {
+    display: inline-block;
+    max-width: 100%;
+    font-size: 1rem;
+    vertical-align: top;
+
+    &--left {
+      text-align: left;
+    }
+
+    &--right {
+      text-align: right;
+    }
+
+    &--center {
+      text-align: center;
+    }
+
+    &--justify {
+      text-align: justify;
+      text-justify: newspaper;
+    }
+
+    &--top {
+      vertical-align: top;
+    }
+
+    &--middle {
+      vertical-align: middle;
+    }
+
+    &--bottom {
+      vertical-align: bottom;
+    }
+  }
+
+  .cell--vline {
+    width: 0;
+    font-size: 0;
+    padding: 0!important;
+  }
+
+  .cell--vline:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    border-left: 1px solid;
+  }
+
+}
+
+@mixin grid-column($columns, $breakpoints) {
+  .grid--col#{$columns} {
+    > .box > .cell--none,
+    > .cell--none {
+      display: none;
+    }
+
+    > .box > .cell--auto,
+    > .cell--auto {
+      display: inline-block;
+      width: auto;
+    }
+
+    > .box > .cell--full,
+    > .cell--full {
+      display: inline-block;
+      width: 100%;
+    }
+
+    @for $i from 1 through $columns {
+      > .box > .cell--col#{$i},
+      > .cell--col#{$i} {
+        display: inline-block;
+        width: ($i * 100% / $columns);
+      }
+    }
+
+    @for $i from length($breakpoints) through 1 {
+      $name: nth(map-keys($breakpoints), $i);
+      $width: nth(map-values($breakpoints), $i);
+      @media (max-width: #{$width}px) {
+        > .box > .cell--#{$name}#{0},
+        > .cell--#{$name}#{0} {
+          display: none;
+        }
+
+        > .box > .cell--#{$name},
+        > .cell--#{$name} {
+          display: inline-block;
+          width: auto;
+        }
+
+        @for $i from 1 through $columns {
+          > .box > .cell--#{$name}#{$i},
+          > .cell--#{$name}#{$i} {
+            display: inline-block;
+            width: ($i * 100% / $columns);
+          }
+
+          .cell--#{$name} {
+
+            &--left {
+              text-align: left;
+            }
+
+            &--right {
+              text-align: right;
+            }
+
+            &--center {
+              text-align: center;
+            }
+
+            &--justify {
+              text-align: justify;
+              text-justify: newspaper;
+            }
+
+            &--top {
+              vertical-align: top;
+            }
+
+            &--middle {
+              vertical-align: middle;
+            }
+
+            &--bottom {
+              vertical-align: bottom;
+            }
+          }
+        }
+      }
+    }
+
+
+
+  }
+}
+
+@mixin grid-indent($indent, $htmlFontSize) {
+  .grid {
+    &--gv#{$indent} {
+      > .box {
+        margin-left: #{- $indent / 20}rem;
+        margin-right: #{- $indent / 20}rem;
+        margin-bottom: #{- 2 * $indent / 20}rem;
+      }
+      > .box > .cell,
+      > .cell {
+        padding-left: #{$indent / 20}rem;
+        padding-right: #{$indent / 20}rem;
+        padding-bottom: #{2 * $indent / 20}rem;
+      }
+    }
+
+    &--g#{$indent} {
+      > .box {
+        margin-left: #{- $indent / 20}rem;
+        margin-right: #{- $indent / 20}rem;
+      }
+      > .box > .cell,
+      > .cell {
+        padding-left: #{$indent / 20}rem;
+        padding-right: #{$indent / 20}rem;
+      }
+    }
+
+    &--v#{$indent} {
+      > .box {
+        margin-bottom: #{- 2 * $indent / 20}rem;
+      }
+      > .box > .cell,
+      > .cell {
+        padding-bottom: #{2 * $indent / 20}rem;
+      }
+
+    }
+  }
+}
+
+@include default($breakpoints, $htmlFontSize);
+@include grid($breakpoints);
+@each $column in $columns {
+  @include grid-column($column, $breakpoints);
+}
+
+@each $indent in $indents {
+  @include grid-indent($indent, $htmlFontSize);
+}

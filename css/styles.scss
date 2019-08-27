@@ -1,0 +1,89 @@
+html, body, div, span, applet, object, iframe, table, caption, tbody, tfoot, thead, tr, th, td,
+del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code,
+dl, dt, dd, ol, ul, li, fieldset, form, label, legend {
+  vertical-align: baseline;
+  font-family: inherit;
+  font-weight: inherit;
+  font-style: inherit;
+  font-size: 100%;
+  outline: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+:focus {
+  outline: 0;
+}
+body {
+  color: #6e6e6e;
+  font-family: 'PT Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+ol, ul {
+  list-style: none;
+}
+h1{
+  font-size: 2em;
+}
+h2{
+  font-size: 1.8em;
+}
+h1, h2, h3, h4, h5, h6{
+  color: #000;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  line-height: 1.2em;
+  text-transform: uppercase;
+}
+a{
+  color: #6e6e6e;
+  text-decoration: none;
+  &:hover{
+    color: #000;
+  }
+}
+.but_a{
+  background: none;
+  border: none;
+  color: #6e6e6e;
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  &:hover{
+    cursor: pointer;
+    color: #000;
+  }
+}
+.button{
+  background: #14a5da;
+  //border: 1px solid  #14a5da;
+  color: #fff;
+  height: 12px;
+  font-size: 12px;
+  line-height: 12px;
+  vertical-align: middle;
+  padding: 5px 18px;
+  border-radius: 2px;
+  &:hover{
+    background: #001f2b;
+    color: #fff;
+    cursor: pointer;
+  }
+}
+input[type="text"]{
+  padding: 5px 7px;
+  font-size: 12px;
+  line-height: 12px;
+  border-radius: 2px;
+  border: 1px solid #ccc;
+  width: 146px;
+}
+textarea{
+  border-radius: 2px;
+}

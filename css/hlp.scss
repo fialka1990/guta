@@ -1,0 +1,258 @@
+$indent: (0, 5, 10, 15, 20, 25, 30, 50);
+
+@mixin indent($indent) {
+  .p#{$indent} {
+    padding: #{$indent / 10}rem;
+  }
+  .pl#{$indent} {
+    padding-left: #{$indent / 10}rem;
+  }
+  .pr#{$indent} {
+    padding-right: #{$indent / 10}rem;
+  }
+  .pt#{$indent} {
+    padding-top: #{$indent / 10}rem;
+  }
+  .pb#{$indent} {
+    padding-bottom: #{$indent / 10}rem;
+  }
+  .pv#{$indent} {
+    padding-top: #{$indent / 10}rem;
+    padding-bottom: #{$indent / 10}rem;
+  }
+  .pg#{$indent} {
+    padding-left: #{$indent / 10}rem;
+    padding-right: #{$indent / 10}rem;
+  }
+  .m#{$indent} {
+    margin: #{$indent / 10}rem;
+  }
+  .ml#{$indent} {
+    margin-left: #{$indent / 10}rem;
+  }
+  .mr#{$indent} {
+    margin-right: #{$indent / 10}rem;
+  }
+  .mt#{$indent} {
+    margin-top: #{$indent / 10}rem;
+  }
+  .mb#{$indent} {
+    margin-bottom: #{$indent / 10}rem;
+  }
+  .mv#{$indent} {
+    margin-top: #{$indent / 10}rem;
+    margin-bottom: #{$indent / 10}rem;
+  }
+  .mg#{$indent} {
+    margin-left: #{$indent / 10}rem;
+    margin-right: #{$indent / 10}rem;
+  }
+  .ml-#{$indent} {
+    margin-left: -#{$indent / 10}rem !important;
+  }
+  .mr-#{$indent} {
+    margin-right: -#{$indent / 10}rem !important;
+  }
+  .mt-#{$indent} {
+    margin-top: -#{$indent / 10}rem !important;
+  }
+  .mb-#{$indent} {
+    margin-bottom: -#{$indent / 10}rem !important;
+  }
+}
+
+@each $idn in $indent {
+  @include indent($idn);
+}
+
+@media (max-width: 768px) {
+  .pgsm10 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/********************************************/
+/*                width                     */
+/********************************************/
+.mw{
+  margin: auto;
+  max-width: 1230px;
+  margin: 0 1rem;
+  position: relative;
+}
+/********************************************/
+/*                  Float                   */
+/********************************************/
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+/********************************************/
+/*                Text-align                */
+/********************************************/
+
+$align: (
+        l: left,
+        r: right,
+        j: justify,
+        c: center
+);
+
+@each $status, $al in $align {
+  .a#{$status} {
+    text-align: $al;
+  }
+}
+
+/********************************************/
+/*                Vertical-align                */
+/********************************************/
+
+$align: (
+        t: top,
+        m: middle,
+        b: bottom,
+);
+
+@each $status, $al in $align {
+  .va#{$status} {
+    vertical-align: $al;
+  }
+}
+
+
+/********************************************/
+/*                 Overflow                 */
+/********************************************/
+
+$overflow: (
+        h: hidden,
+        v: visible,
+        s: scroll,
+        a: auto
+);
+
+@each $status, $al in $overflow {
+  .o#{$status} {
+    overflow: $al!important;
+  }
+}
+
+
+/********************************************/
+/*                 Display                  */
+/********************************************/
+
+$display: (
+        dn: none,
+        db: block,
+        di: inline,
+        dib: inline-block
+);
+@each $status, $al in $display {
+  .#{$status} {
+    display: $al;
+  }
+}
+
+/********************************************/
+/*                  w-fix                   */
+/********************************************/
+.wf10 {
+  width: 10rem !important;
+}
+
+.wf15 {
+  width: 15rem !important;
+}
+
+.wf20 {
+  width: 20rem !important;
+}
+
+.wf30 {
+  width: 30rem !important;
+}
+
+/********************************************/
+/*                  h-fix                   */
+/********************************************/
+.hf36 {
+  height: 36rem;
+}
+
+.hf30 {
+  height: 30rem;
+}
+
+.hf18 {
+  height: 18rem;
+}
+
+.hf17 {
+  height: 17rem;
+}
+
+.hf16 {
+  height: 16rem;
+}
+
+.hf15 {
+  height: 15rem;
+}
+
+.hf12 {
+  height: 12rem;
+}
+
+.hf11 {
+  height: 11rem;
+}
+.hf10 {
+  height: 10rem;
+}
+.hf20 {
+  height: 20rem;
+}
+
+/********************************************/
+/*               background                 */
+/********************************************/
+
+.bgno {
+  background: none !important;
+}
+
+/********************************************/
+/*               border                     */
+/********************************************/
+.bb {
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+}
+
+.br {
+  border-right-width: 1px;
+  border-right-style: solid;
+}
+
+.bt {
+  border-top-width: 1px;
+  border-top-style: solid;
+}
+
+.bl {
+  border-left-width: 1px;
+  border-left-style: solid;
+}
+
+.bo {
+  border-width: 1px;
+  border-style: solid;
+}
+
